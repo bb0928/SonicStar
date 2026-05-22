@@ -1,4 +1,5 @@
 # SonicStar
+<<<<<<< HEAD
 
 G1 版 VLA 代码仓库，分成两块：
 
@@ -55,3 +56,6 @@ PYTHONPATH=$PWD python examples/SonicLatent/eval_files/run_starvla_inference.py 
 - `wbc/gear_sonic/scripts/`: 采集、推理、仿真入口
 - `wbc/gear_sonic_deploy/`: G1 部署代码
 
+=======
+Open-source Unitree G1 Vision-Language-Action stack for teleop data collection, SonicLatent training, simulation, and real-time whole-body policy deployment(real world deployment TBD).
+>>>>>>> a49b844aee9778d03b430107a9803e15ad88ccbc
