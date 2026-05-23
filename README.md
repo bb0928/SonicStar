@@ -12,7 +12,7 @@ Unitree G1 的 VLA 开源仓库，分成两块：
 
 ## 采集数据
 
-在 `wbc/` 下启动采集链路,在不同终端下依次运行（建议把https://github.com/NVlabs/GR00T-WholeBodyControl.git克隆下来，在那个仓库下跑，本仓库仅供参考示意）：
+在 `wbc/` 下启动采集链路,在不同终端下依次运行（建议把https://github.com/NVlabs/GR00T-WholeBodyControl.git 克隆下来，在那个仓库下跑，本仓库仅供参考示意）：
 
 ```bash
 python gear_sonic/scripts/run_sim_loop.py --enable-image-publish --enable-offscreen --camera-port 5555
@@ -22,8 +22,8 @@ python gear_sonic/scripts/run_data_exporter.py --task-prompt "pick up the cylind
 python gear_sonic/scripts/pico_manager_thread_server.py --manager
 ```
 
-采集完毕后根据starVLA教程https://starvla.github.io/docs/zh-cn/training/lerobot-dataset/修改数据集的meta/modality.json
-可以参考我自己采集的数据集https://huggingface.co/datasets/Tang-keke/merged_dataset_001
+采集完毕后根据starVLA教程https://starvla.github.io/docs/zh-cn/training/lerobot-dataset/ 修改数据集的meta/modality.json
+也可以参考我自己采集的数据集https://huggingface.co/datasets/Tang-keke/merged_dataset_001
 注意我的数据集中meta/的source_episodes、stats_gr00t、steps_data_index不是必要的文件，不需要参考
 
 ## 训练 VLA
@@ -38,7 +38,7 @@ bash examples/SonicLatent/train_files/run_sonic_latent_train.sh
 examples/SonicLatent/train_files/train_sonic_latent.yaml
 ```
 
-我的训练数据集从`GR00T-WholeBodyControl/` 也就是`wbc/` 采集后，放在starVLA/playground/Datasets/里面（建议把https://github.com/starVLA/starVLA.git克隆下来，在那个仓库下跑，本仓库仅供参考示意）
+我的训练数据集从`GR00T-WholeBodyControl/` 也就是`wbc/` 采集后，放在starVLA/playground/Datasets/里面（建议把https://github.com/starVLA/starVLA.git 克隆下来，在那个仓库下跑，本仓库仅供参考示意）
 
 ## 部署推理
 
