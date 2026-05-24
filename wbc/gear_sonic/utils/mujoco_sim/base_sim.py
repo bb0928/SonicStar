@@ -194,6 +194,7 @@ class DefaultEnv:
                 )
 
         # Enable the elastic band
+        self.elastic_band = None
         if self.config["ENABLE_ELASTIC_BAND"] and self.use_floating_root_link:
             self.elastic_band = ElasticBand()
             if "g1" in self.config["ROBOT_TYPE"]:
@@ -403,7 +404,7 @@ class DefaultEnv:
         self.unitree_bridge.PublishLowState(self.obs)
         if self.unitree_bridge.joystick:
             self.unitree_bridge.PublishWirelessController()
-        if self.elastic_band:
+        if self.elastic_band is not None:
             if self.elastic_band.enable and self.use_floating_root_link:
                 pose = np.concatenate(
                     [
@@ -507,7 +508,7 @@ class DefaultEnv:
         return render_caches
 
     def handle_keyboard_button(self, key):
-        if self.elastic_band:
+        if self.elastic_band is not None:
             self.elastic_band.handle_keyboard_button(key)
 
         if key == "backspace":

@@ -458,6 +458,13 @@ def main(config: InferenceConfig):
         elif key == "]":
             initial_pose_right_hand_closed = not initial_pose_right_hand_closed
 
+    print_green("Auto-starting C++ control loop in POSE mode")
+    send_cpp_control_command(start=True, planner=True)
+    time.sleep(0.5)
+    publish_initial_pose()
+    send_cpp_control_command(start=True, planner=False)
+    pause_loop = False
+
     inference_queue = queue.Queue(maxsize=1)
     result_queue = queue.Queue(maxsize=1)
     inference_stop_event = threading.Event()
