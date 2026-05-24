@@ -82,6 +82,24 @@ python gear_sonic/scripts/send_keyboard_cmd.py k
 
 send_keyboard_cmd这个脚本请在gear_sonic_sim环境里运行。
 
+### TensorRT/CUDA 999 排错
+
+如果 `deploy.sh` 启动时报类似下面的错误：
+
+```text
+CUDA initialization failure with error: 999
+Unable to set GPU device index to 0. Current device has 0 CUDA-capable GPU(s)
+```
+
+先确认 `nvidia-smi` 能看到 GPU。如果能看到，但 TensorRT/C++ deploy 仍然报 CUDA 999，通常是 `nvidia_uvm` 模块状态异常，可以重载 UVM：
+
+```bash
+sudo rmmod nvidia_uvm
+sudo modprobe nvidia_uvm
+```
+
+然后重新启动 `deploy.sh` 或一键 tmux 脚本。
+
 ## 目录说明
 
 - `starVLA/examples/SonicLatent/`: G1 VLA 训练和部署
